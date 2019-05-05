@@ -38,12 +38,18 @@ class Sticky extends React.Component {
   }
 
   componentDidMount() {
-    const { container, offsetTop } = this.props;
+    const {
+      container,
+      offsetTop
+    } = this.props;
     const $stickyer = findDOMNode(this.stickyer);
     container().addEventListener('scroll', (e) => {
       const rect = $stickyer.getBoundingClientRect();
-      const { top, height, width }  = rect;
-      console.log(e)
+      const {
+        top,
+        height,
+        width
+      }  = rect;
       this.setState({
         sticky: top < offsetTop,
         placeholderHeight: height,

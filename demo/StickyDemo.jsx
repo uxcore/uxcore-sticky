@@ -12,18 +12,6 @@ import '../style';
 
 class Demo extends React.Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      state: true
-    };
-    // setTimeout(() => {
-    //   this.setState({
-    //     state: false
-    //   })
-    // }, 3000)
-  }
-
   render() {
     return (
       <div>
@@ -34,24 +22,19 @@ class Demo extends React.Component {
         <div>这里是其它内容</div>
         <div>这里是其它内容</div>
         <div style={{
-          width: 1000,
-          height: 500,
-          overflow: 'scroll',
-          background: 'red',
-          margin: '0 auto'
+          // width: 1000,
+          // margin: '0 auto'
         }}>
           <div>这里是其它内容</div>
 
-          <Sticky offsetTop={0} offsetBottom={0} onChange={(isSticky) => {console.log(isSticky)}}>
+          <Sticky offsetTop={0} onChange={(isSticky) => {console.log(isSticky)}}>
             <div style={{ background: 'lightblue', color: 'blue' }}>
               这里是固顶内容
               lskadj十来块都放假了卡机多放辣椒拉屎的
-              <br/>
-              { this.state.state ? <p>撒地方卢卡斯剪短发了</p> : null }
             </div>
           </Sticky>
           <div style={{height: '1000px'}}>
-sadf
+            其它内容
           </div>
         </div>
         <div style={{ height: '2000px' }}>
