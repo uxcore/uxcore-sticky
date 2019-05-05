@@ -18,6 +18,7 @@ class Sticky extends React.Component {
     prefixCls: PropTypes.string,
     className: PropTypes.string,
     offsetTop: PropTypes.number,
+    onChange: PropTypes.func,
     container: PropTypes.func
   };
 
@@ -25,6 +26,7 @@ class Sticky extends React.Component {
     prefixCls: 'uxcore-sticky',
     className: '',
     offsetTop: 0,
+    onChange: () => {},
     container: () => document
   };
 
@@ -40,7 +42,8 @@ class Sticky extends React.Component {
   componentDidMount() {
     const {
       container,
-      offsetTop
+      offsetTop,
+      onChange
     } = this.props;
     const $stickyer = findDOMNode(this.stickyer);
     container().addEventListener('scroll', (e) => {
@@ -50,10 +53,15 @@ class Sticky extends React.Component {
         height,
         width
       }  = rect;
+      if (this.isSticky && top >= offsetTop || !this.isSticky && top < offsetTop) {
+        onChange(top < offsetTop)
+      }
       this.setState({
         sticky: top < offsetTop,
         placeholderHeight: height,
         width
+      }, () => {
+        this.isSticky = top < offsetTop
       })
     })
   }

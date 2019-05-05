@@ -6,7 +6,7 @@ React sticky
 [![build status][travis-image]][travis-url]
 [![Test Coverage][coveralls-image]][coveralls-url]
 [![Dependency Status][dep-image]][dep-url]
-[![devDependency Status][devdep-image]][devdep-url] 
+[![devDependency Status][devdep-image]][devdep-url]
 [![NPM downloads][downloads-image]][npm-url]
 
 [![Sauce Test Status][sauce-image]][sauce-url]
@@ -71,5 +71,14 @@ Yes please! See the [CONTRIBUTING](https://github.com/uxcore/uxcore/blob/master/
 ## Props
 
 | Name | Type | Required | Default | Comments |
-|---|---|---|---|---|
+
+| prefixCls | --- | --- | --- | --- |
+
+| className | --- | --- | --- | --- |
+
+| offsetTop | number | false | 0 | 距离顶部的偏移量 |
+
+| onChange | function | false | (isSticky) => {} | 粘性元素状态改变时的回调 |
+
+| container | function | false | () => document | 定义粘性元素的容器 |
 
