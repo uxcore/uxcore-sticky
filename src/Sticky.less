@@ -9,8 +9,6 @@
 @__sticky-prefix-cls: uxcore-sticky;
 
 .@{__sticky-prefix-cls} {
-  background: #fff;
-  z-index: 999;
   .@{__sticky-prefix-cls}-placeholder {
     display: none;
     &.sticky {
@@ -18,6 +16,8 @@
     }
   }
   .@{__sticky-prefix-cls}-content {
+    background: #fff;
+    z-index: 9000;
     &.sticky {
       position: fixed;
     }
