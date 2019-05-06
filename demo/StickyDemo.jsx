@@ -27,7 +27,7 @@ class Demo extends React.Component {
         }}>
           <div>这里是其它内容</div>
 
-          <Sticky offsetTop={0} onChange={(isSticky) => {console.log(isSticky)}}>
+          <Sticky offsetTop={10} onChange={(isSticky) => {console.log(isSticky)}}>
             <div style={{ background: 'lightblue', color: 'blue' }}>
               这里是固顶内容
               lskadj十来块都放假了卡机多放辣椒拉屎的

@@ -39,35 +39,46 @@ class Sticky extends React.Component {
     };
   }
 
-  componentDidMount() {
+  scroll = ($stickyer) => {
     const {
-      container,
       offsetTop,
       onChange
     } = this.props;
-    const $stickyer = findDOMNode(this.stickyer);
-    container().addEventListener('scroll', (e) => {
-      const rect = $stickyer.getBoundingClientRect();
-      console.log($stickyer)
-      const {
-        top,
-        height,
-        width
-      }  = rect;
-      if (this.isSticky && top >= offsetTop || !this.isSticky && top < offsetTop) {
-        onChange(top < offsetTop)
-      }
-      this.setState({
-        sticky: top < offsetTop,
-        placeholderHeight: height,
-        width
-      }, () => {
-        this.isSticky = top < offsetTop
-      })
+    const rect = $stickyer.getBoundingClientRect();
+    const {
+      top,
+      height,
+      width
+    }  = rect;
+    if (this.isSticky && top >= offsetTop || !this.isSticky && top < offsetTop) {
+      onChange(top < offsetTop)
+    }
+    this.setState({
+      sticky: top < offsetTop,
+      placeholderHeight: height,
+      width
+    }, () => {
+      this.isSticky = top < offsetTop
     })
   }
 
-  componentDidUpdate() {
+  onScroll = () => {
+    const $stickyer = findDOMNode(this.stickyer);
+    this.scroll($stickyer)
+  }
+
+  componentDidMount() {
+    const {
+      container,
+    } = this.props;
+    container().addEventListener('scroll', this.onScroll)
+  }
+
+  componentWillUnmount() {
+    const {
+      container,
+    } = this.props;
+    container().removeEventListener('scroll', this.onScroll)
   }
 
   render() {
