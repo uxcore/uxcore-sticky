@@ -48,6 +48,7 @@ class Sticky extends React.Component {
     const $stickyer = findDOMNode(this.stickyer);
     container().addEventListener('scroll', (e) => {
       const rect = $stickyer.getBoundingClientRect();
+      console.log($stickyer)
       const {
         top,
         height,
